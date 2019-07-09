@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
   has_many :trails
   has_secure_password
-  validates_presence_of :username, :email, :password
-  validates_uniqueness_of :username, :email
+  validates_presence_of :username, :email, :password_digest
+  # validates_presence_of :password, on: :create
+  # validates_uniqueness_of :username, :email
 
   def self.valid_email?(email)
     if email.length < 5 || User.exists?(email) || !email.include?("@")

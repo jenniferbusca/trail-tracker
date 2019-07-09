@@ -1,0 +1,25 @@
+<form action="/account/<%= @user.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <ul>
+    <li>
+      <label for="username">Username</label>
+      <input id="username" type="text" name="user[username]" value="<%= @user.username %>"/>
+    </li>
+    <li>
+      <label for="email">Email</label>
+      <input id="email" type="text" name="user[email]" value="<%= @user.email %>"/>
+    </li>
+    <li>
+      <label for="location">Location</label>
+      <input id="location" type="text" name="user[location]" value="<%= @user.location %>"/>
+    </li>
+  </ul>
+  <input type="submit" value="Submit Changes"/>
+</form>
+
+<form method="post" action="/account/<%= @user.id %>">
+  <input type="hidden" name="_method" value="delete" />
+  <input type="submit" value="Delete Account"/>
+</form>
+
+<a href="/logout"> Log Out </a>

@@ -1,3 +1,3 @@
-class Trails < ActiveRecord::Base
+class Trail < ActiveRecord::Base
   has_many :users
 end

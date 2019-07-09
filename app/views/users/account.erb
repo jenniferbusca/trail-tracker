@@ -1,2 +1,8 @@
 <h1>Welcome to Trail Tracker, <%=@user.username %>!</h1>
+<h2>Your Hikes:</h2>
+  <a href="/trails"> Trail List </a>
+  <br>
+<h2>Your Account:</h2>
+  <a href="/account/<%= @user.id %>/edit"> Edit your account </a>
+  <br>
   <a href="/logout"> Log Out </a>

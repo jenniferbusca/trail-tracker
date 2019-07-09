@@ -1,0 +1,9 @@
+<h1><%= @trail.name%> in <%= @trail.location %></h1>
+<br>
+<ul>
+  <li><b>Trail Length:</b> <%= @trail.miles %> miles</li>
+  <li><b>Elevation Gain:</b> <%= @trail.elevation_gain %> feet</li>
+  <li><b>Trail Difficulty:</b> <%= @trail.difficulty %></li>
+</ul>
+<br>
+<a href="/trails/<%=@trail.id%>/edit">Edit Trail </a>
