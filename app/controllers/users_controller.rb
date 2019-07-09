@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    if params[:username].length < 1 || params[:email].length < 1 || params[:password].length < 1
+    if !User.valid_username?(params[:username]) || !User.valid_email?(params[:email]) || params[:password].length < 3
       redirect '/failure'
     else
       @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password], :location => params[:location])
