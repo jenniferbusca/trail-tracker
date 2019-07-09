@@ -1,58 +1,49 @@
 class UsersController < ApplicationController
 
-  get '/users/:id' do
-    @user = User.find(params[:id])
-    erb :'/users/show'
-  end
-
-  # get '/users/:slug' do
-  #   @user = User.find_by_slug(params[:slug])
-  #   erb :'/users/show'
-  # end
-
-  get '/signup' do
-    if !logged_in?
-      erb :'users/new', locals: {message: "Please sign up before you sign in"}
-    else
-      redirect to '/users/show'
-    end
+  get "/signup" do
+    erb :"/users/signup"
   end
 
   post '/signup' do
     if params[:username].length < 1 || params[:email].length < 1 || params[:password].length < 1
-      redirect to '/signup'
+      redirect '/failure'
     else
       @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password], :location => params[:location])
-      session[:user_id] = @user.id
-      redirect to '/users/show'
+      session[:user_id] = @user.id #automatically logs user in after signup
+      redirect "/account"
     end
+  end
+
+  get '/account' do
+    @user = User.find(session[:user_id])
+    erb :"/users/account"
   end
 
   get '/login' do
     if !logged_in?
-      erb :'users/login'
+      erb :"/users/login"
     else
-      redirect to '/users/show'
+      redirect "/account"
     end
   end
 
-  post '/login' do
-    user = User.find_by(:username => params[:username])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect to "/users/show"
+  post "/login" do
+    @user = User.find_by(username: params[:username])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      redirect "/account"
     else
-      redirect to '/signup'
+      redirect "/failure"
     end
+  end
+
+  get "/failure" do
+    erb :"/users/failure"
   end
 
   get '/logout' do
-    if logged_in?
-      session.destroy
-      redirect to '/login'
-    else
-      redirect to '/'
-    end
+    session.destroy
+    redirect '/'
   end
 
 end
