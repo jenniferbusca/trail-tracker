@@ -6,4 +6,10 @@
   <li><b>Trail Difficulty:</b> <%= @trail.difficulty %></li>
 </ul>
 <br>
+<form action="/account/<%= @user_id %>" method="post">
+  <input type="checkbox" name="favorite" value="favorite"> Favorite<br>
+  <input type="hidden" name="trail_id" value="<%= @trail.id %>" />
+  <input type="submit" value="Save">
+</form>
+<br>
 <a href="/trails/<%=@trail.id%>/edit">Edit Trail </a>

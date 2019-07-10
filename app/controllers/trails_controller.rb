@@ -22,6 +22,7 @@ class TrailsController < ApplicationController
 
   # GET /trails/:id
   get "/trails/:id" do
+    @user_id = session[:user_id]
     @trail = Trail.find(params[:id])
     erb :"/trails/show"
   end

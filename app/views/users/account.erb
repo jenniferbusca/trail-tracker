@@ -1,6 +1,12 @@
 <h1>Welcome to Trail Tracker, <%=@user.username %>!</h1>
-<h2>Your Hikes:</h2>
-  <a href="/trails"> Trail List </a>
+<h2>Your Trail List:</h2>
+<h3>Favorites</h3>
+  <% @user_trails.each do |user_trail| %>
+    <% @trail_info = @trails.find {|trail| trail.id == user_trail[:trail_id]} %>
+    <li><a href="/trails/<%= user_trail[:trail_id] %>"><%= @trail_info.name %> in <%= @trail_info.location %></a></li>
+  <% end %>
+<h3>Completed Trails<h3>
+  <a href="/trails"> All Trails</a>
   <br>
 <h2>Your Account:</h2>
   <a href="/account/<%= @user.id %>/edit"> Edit your account </a>

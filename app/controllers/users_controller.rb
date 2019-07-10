@@ -5,18 +5,27 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do #create
-    if !User.valid_username?(params[:username]) || !User.valid_email?(params[:email]) || params[:password].length < 3
-      redirect '/failure'
-    else
+    if valid_username?(params[:username]) && valid_email?(params[:email]) && params[:password].length > 5
       @user = User.create(params)
       session[:user_id] = @user.id #automatically logs user in after signup
       redirect "/account/#{session[:user_id]}"
+    else
+      redirect '/failure'
     end
   end
 
   get '/account/:id' do
     @user = User.find(session[:user_id])
+    @user_trails = UserTrails.all.select {|user_trail|user_trail.user_id == session[:user_id]}
+    @trails = Trail.all
+    # binding.pry
     erb :"/users/account"
+  end
+
+  post '/account/:id' do
+    if params.include?(:favorite)
+      @user_trail = UserTrails.create(user_id: params[:id], trail_id: params[:trail_id], favorite: params[:favorite])
+    end
   end
 
   get '/login' do
