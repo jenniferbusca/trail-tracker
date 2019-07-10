@@ -1,0 +1,32 @@
+<h2> Edit Trail </h2>
+
+<form action="/trails/<%= @trail.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <ul>
+    <li>
+      <label for="name">Username: </label>
+      <input id="name" type="text" name="trail[name]" value="<%= @trail.name %>"/>
+    </li>
+    <li>
+      <label for="location">Location: </label>
+      <input id="location" type="text" name="trail[location]" value="<%= @trail.location %>"/>
+    </li>
+    <li>
+      <label for="miles">Miles: </label>
+      <input id="miles" type="text" name="trail[miles]" value="<%= @trail.miles %>"/>
+    </li>
+    <li>
+      <label for="elevation_gain">Elevation Gain:</label>
+      <input id="elevation_gain" type="text" name="trail[elevation_gain]" value="<%= @trail.elevation_gain%>"/>
+    </li>
+    <li>
+      <label for="difficulty">Difficulty:</label>
+      <input id="difficulty" type="text" name="trail[difficulty]" value="<%= @trail.difficulty %>"/>
+    </li>
+  </ul>
+  <input type="submit" value="Submit Changes"/>
+</form>
+
+
+
+<a href="/logout"> Log Out </a>

@@ -26,4 +26,18 @@ class TrailsController < ApplicationController
     erb :"/trails/show"
   end
 
+  # GET /trails/:id/edit
+  get "/trails/:id/edit" do
+    @trail = Trail.find(params[:id])
+    erb :"/trails/edit"
+  end
+
+  # PATCH: /trails/:id
+  patch "/trails/:id" do
+    @trail = Trail.find(params[:id])
+    @trail.update_attributes(params[:trail])
+    redirect to "/account/#{@trail.id}"
+  end
+
+
 end
