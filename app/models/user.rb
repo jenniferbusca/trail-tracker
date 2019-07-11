@@ -6,12 +6,12 @@ class User < ActiveRecord::Base
   # validates_presence_of :password, on: :create
   # validates_uniqueness_of :username, :email
 
-  def completed_trails
-    self.trails.where("completed = ?", "completed")
-  end
-
   def favorite_trails
     self.trails.where("favorite = ?", "favorite")
+  end
+
+  def completed_trails
+    self.trails.where("completed = ?", "completed")
   end
 
 end

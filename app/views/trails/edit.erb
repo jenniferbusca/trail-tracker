@@ -4,7 +4,7 @@
   <input type="hidden" name="_method" value="patch">
   <ul>
     <li>
-      <label for="name">Username: </label>
+      <label for="name">Name: </label>
       <input id="name" type="text" name="trail[name]" value="<%= @trail.name %>"/>
     </li>
     <li>
@@ -26,3 +26,10 @@
   </ul>
   <input type="submit" value="Submit Changes"/>
 </form>
+<br>
+<% if current_user.email == "jennifer.busca@gmail.com" %>
+  <form method="post" action="/trails/<%= @trail.id %>">
+    <input type="hidden" name="_method" value="delete" />
+    <input type="submit" value="Delete Trail"/>
+  </form>
+<% end %>

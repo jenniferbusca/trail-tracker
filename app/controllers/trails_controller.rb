@@ -41,4 +41,11 @@ class TrailsController < ApplicationController
     redirect to "/trails/#{@trail.id}" #double check this
   end
 
+  # delete
+  delete '/trails/:id' do
+    @trail = Trail.find(params[:id])
+    @trail.delete
+    redirect "/trails"
+  end
+
 end

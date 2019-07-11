@@ -27,7 +27,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def valid_email?(email)
-      if email.length < 5 || User.exists?(:email => params[:email]) || !email.include?("@")
+      if email.length < 5 || User.exists?(email: params[:email]) || !email.include?("@")
         false
       else
         true
@@ -35,7 +35,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def valid_username?(username)
-      if username.length < 3 || User.exists?(:username => params[:username])
+      if username.length < 3 || User.exists?(username: params[:username])
         false
       else
         true

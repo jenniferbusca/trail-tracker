@@ -13,6 +13,7 @@
   <% else %>
     <input type="checkbox" name="favorite" id="favorite" value="favorite" <%='checked' unless @user_trail.favorite.blank? %>>Favorite</input>
     <input type="checkbox" name="completed" id="completed" value="completed" <%='checked' unless @user_trail.completed.blank? %>>Completed</input>
+  <% end %>
   <input type="hidden" name="trail_id" value="<%= @trail.id %>" />
   <input type="submit" value="Save">
 </form>
