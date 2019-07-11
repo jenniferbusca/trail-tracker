@@ -1,25 +1,27 @@
-<form action="/account/<%= @user.id %>" method="post">
+<h2>Edit User:</h2>
+<form action="/user/<%= @user.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
   <ul>
     <li>
-      <label for="username">Username</label>
-      <input id="username" type="text" name="user[username]" value="<%= @user.username %>"/>
+      <label for="username">Username:</label><br>
+      <input id="username" type="text"  size="35" name="user[username]" value="<%= @user.username %>"/>
     </li>
+    <br>
     <li>
-      <label for="email">Email</label>
-      <input id="email" type="text" name="user[email]" value="<%= @user.email %>"/>
+      <label for="email">Email:</label><br>
+      <input id="email" type="text"  size="35" name="user[email]" value="<%= @user.email %>"/>
     </li>
+    <br>
     <li>
-      <label for="location">Location</label>
-      <input id="location" type="text" name="user[location]" value="<%= @user.location %>"/>
+      <label for="location">Location:</label><br>
+      <input id="location" type="text"  size="35" name="user[location]" value="<%= @user.location %>"/>
     </li>
   </ul>
+  <br>
   <input type="submit" value="Submit Changes"/>
 </form>
-
-<form method="post" action="/account/<%= @user.id %>">
+<br>
+<form method="post" action="/user/<%= @user.id %>">
   <input type="hidden" name="_method" value="delete" />
-  <input type="submit" value="Delete Account"/>
+  <input type="submit" value="Delete User"/>
 </form>
-
-<a href="/logout"> Log Out </a>

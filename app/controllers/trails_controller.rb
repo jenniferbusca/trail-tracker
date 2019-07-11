@@ -24,8 +24,7 @@ class TrailsController < ApplicationController
   get "/trails/:id" do
     @user_id = session[:user_id]
     @trail = Trail.find(params[:id])
-    @user_trail = UserTrails.where(user_id: @user_id, trail_id: params[:id]).first
-    # binding.pry
+    @user_trail = UserTrail.where(user_id: @user_id, trail_id: params[:id]).first
     erb :"/trails/show"
   end
 
@@ -39,7 +38,7 @@ class TrailsController < ApplicationController
   patch "/trails/:id" do
     @trail = Trail.find(params[:id])
     @trail.update_attributes(params[:trail])
-    redirect to "/account/#{@trail.id}"
+    redirect to "/trails/#{@trail.id}" #double check this
   end
 
 end

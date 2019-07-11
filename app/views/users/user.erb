@@ -1,0 +1,26 @@
+<h2>Your Trails:</h2>
+
+<p>View <a href="/trails">trail list</a> to add to your favorite or completed trails.</p>
+
+<h3>Favorites</h3>
+  <% unless current_user.favorite_trails.blank? %>
+    <% current_user.favorite_trails.each do |favorite_trail| %>
+      <li><a href="/trails/<%= favorite_trail[:id] %>"><%= favorite_trail.name %> in <%= favorite_trail.location %></a></li>
+    <% end %>
+  <% else %>
+  <p>You have no favorite trails.</p>
+  <% end %>
+
+<h3>Completed</h3>
+  <% unless current_user.completed_trails.blank? %>
+    <% current_user.completed_trails.each do |completed_trail| %>
+      <li><a href="/trails/<%= completed_trail[:id] %>"><%= completed_trail.name %> in <%= completed_trail.location %></a></li>
+    <% end %>
+  <% else %>
+  <p>You have not completed any trails.</p>
+  <% end %>
+
+  <p>Edit your <a href="/user/<%= @user.id %>/edit">account</a></p>
+  <form action="/logout">
+      <input type="submit" value="Log Out"/><br>
+  </form>

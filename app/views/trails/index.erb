@@ -1,8 +1,8 @@
-<h1>Trail List</h1>
+<h2>Trail List</h2>
 <ul>
 <% @trails.each do |trail| %>
   <li><a href="/trails/<%= trail.id %>"><%= trail.name %> in <%= trail.location %></li>
 <% end %>
 </ul>
 <br>
-<a href="/trails/new"> Create new trail </a>
+<a href="/trails/new"> Create a new trail </a>

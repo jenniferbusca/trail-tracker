@@ -1,4 +1,4 @@
-class UserTrails < ActiveRecord::Base
+class UserTrail < ActiveRecord::Base
   belongs_to :user
   belongs_to :trail
 

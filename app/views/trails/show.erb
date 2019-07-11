@@ -6,21 +6,13 @@
   <li><b>Trail Difficulty:</b> <%= @trail.difficulty %></li>
 </ul>
 <br>
-<form action="/account/<%= @user_id %>" method="post">
+<form action="/user/<%= @user_id %>" method="post">
   <% if @user_trail == nil%>
-      <input type="checkbox" name="favorite" value="favorite"> Favorite<br>
-      <input type="checkbox" name="completed" value="completed"> Completed<br>
-    <% elsif @user_trail.favorite == "favorite" && @user_trail.completed == "completed"%>
-      <input type="checkbox" name="favorite" value="favorite" checked> Favorite<br>
-      <input type="checkbox" name="completed" value="completed" id="completed" checked> Completed<br>
-    <% elsif @user_trail.favorite == "favorite" && @user_trail.completed == nil%>
-      <input type="checkbox" name="favorite" value="favorite" checked> Favorite<br>
-      <input type="checkbox" name="completed" value="completed"> Completed<br>
-    <% else%>
-      <input type="checkbox" name="favorite" value="favorite"> Favorite<br>
-      <input type="checkbox" name="completed" value="completed" id="completed" checked> Completed<br>
-  <% end %>
-
+    <input type="checkbox" name="favorite" value="favorite"> Favorite<br>
+    <input type="checkbox" name="completed" value="completed"> Completed<br>
+  <% else %>
+    <input type="checkbox" name="favorite" id="favorite" value="favorite" <%='checked' unless @user_trail.favorite.blank? %>>Favorite</input>
+    <input type="checkbox" name="completed" id="completed" value="completed" <%='checked' unless @user_trail.completed.blank? %>>Completed</input>
   <input type="hidden" name="trail_id" value="<%= @trail.id %>" />
   <input type="submit" value="Save">
 </form>
