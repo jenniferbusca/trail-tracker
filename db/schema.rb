@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_08_180932) do
+ActiveRecord::Schema.define(version: 2019_07_11_002930) do
 
   create_table "trails", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_07_08_180932) do
     t.integer "trail_id"
     t.string "favorite"
     t.string "duration"
+    t.string "completed"
   end
 
   create_table "users", force: :cascade do |t|

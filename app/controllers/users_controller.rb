@@ -16,16 +16,19 @@ class UsersController < ApplicationController
 
   get '/account/:id' do
     @user = User.find(session[:user_id])
-    @user_trails = UserTrails.all.select {|user_trail|user_trail.user_id == session[:user_id]}
+    @favorite_trails = UserTrails.all.select {|user_trail|user_trail.user_id == session[:user_id] && user_trail.favorite == "favorite"}
+    @completed_trails = UserTrails.all.select {|user_trail|user_trail.user_id == session[:user_id] && user_trail.completed == "completed"}
     @trails = Trail.all
-    # binding.pry
     erb :"/users/account"
   end
 
   post '/account/:id' do
-    if params.include?(:favorite)
-      @user_trail = UserTrails.create(user_id: params[:id], trail_id: params[:trail_id], favorite: params[:favorite])
+    if !UserTrails.exists?(user_id: params[:id], trail_id: params[:trail_id])
+      @user_trail = UserTrails.create(user_id: params[:id], trail_id: params[:trail_id], favorite: params[:favorite], completed: params[:completed])
+    else
+      UserTrails.where(user_id: params[:id], trail_id: params[:trail_id]).first.update(favorite: params[:favorite], completed: params[:completed])
     end
+    redirect "/account/#{session[:user_id]}"
   end
 
   get '/login' do

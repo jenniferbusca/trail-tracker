@@ -1,12 +1,20 @@
 <h1>Welcome to Trail Tracker, <%=@user.username %>!</h1>
-<h2>Your Trail List:</h2>
+<h2>Your Trails:</h2>
 <h3>Favorites</h3>
-  <% @user_trails.each do |user_trail| %>
-    <% @trail_info = @trails.find {|trail| trail.id == user_trail[:trail_id]} %>
-    <li><a href="/trails/<%= user_trail[:trail_id] %>"><%= @trail_info.name %> in <%= @trail_info.location %></a></li>
+  <% @favorite_trails.each do |favorite_trail| %>
+    <% @trail_info = @trails.find {|trail| trail.id == favorite_trail[:trail_id]} %>
+    <li><a href="/trails/<%= favorite_trail[:trail_id] %>"><%= @trail_info.name %> in <%= @trail_info.location %></a></li>
   <% end %>
-<h3>Completed Trails<h3>
-  <a href="/trails"> All Trails</a>
+<h3>Completed</h3>
+  <% @completed_trails.each do |completed_trail| %>
+    <% @trail_info = @trails.find {|trail| trail.id == completed_trail[:trail_id]} %>
+    <li><a href="/trails/<%= completed_trail[:trail_id] %>"><%= @trail_info.name %> in <%= @trail_info.location %></a></li>
+  <% end %>
+  <br>
+  <h2>All Trails:</h2>
+  <a href="/trails"> View complete trail list</a>
+  <br>
+  <br>
   <br>
 <h2>Your Account:</h2>
   <a href="/account/<%= @user.id %>/edit"> Edit your account </a>
