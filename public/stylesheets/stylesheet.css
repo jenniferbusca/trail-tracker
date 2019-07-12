@@ -1,8 +1,8 @@
 @media screen {
-
-  .container {
-    position: relative;
-    width: 100%;
+  img {
+    max-width: 50%;
+    height: auto;
+    border-radius: 8px;
   }
 
   .container h1 {

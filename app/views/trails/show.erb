@@ -1,22 +1,29 @@
-<h2><%= @trail.name%> in <%= @trail.location %></h2>
+<head>
+  <link rel="stylesheet" href="/stylesheets/stylesheet.css" />
+</head>
+<div class="trail_info">
+  <h2><%= @trail.name%> in <%= @trail.location %></h2>
+  <ul>
+    <li><b>Trail Length:</b> <%= @trail.miles %> miles</li>
+    <li><b>Elevation Gain:</b> <%= @trail.elevation_gain %> feet</li>
+    <li><b>Trail Difficulty:</b> <%= @trail.difficulty %></li>
+  </ul>
+  <br>
+  <form action="/user/<%= @user_id %>" method="post">
+    <% if @user_trail == nil%>
+      <input type="checkbox" name="favorite" value="favorite"> Favorite<br>
+      <input type="checkbox" name="completed" value="completed"> Completed<br>
+    <% else %>
+      <input type="checkbox" name="favorite" id="favorite" value="favorite" <%='checked' unless @user_trail.favorite.blank? %>> Favorite</input>
+      <input type="checkbox" name="completed" id="completed" value="completed" <%='checked' unless @user_trail.completed.blank? %>> Completed</input>
+    <% end %>
+    <input type="hidden" name="trail_id" value="<%= @trail.id %>" />
+    <input type="submit" value="Save">
+  </form>
+</div>
 <br>
-<ul>
-  <li><b>Trail Length:</b> <%= @trail.miles %> miles</li>
-  <li><b>Elevation Gain:</b> <%= @trail.elevation_gain %> feet</li>
-  <li><b>Trail Difficulty:</b> <%= @trail.difficulty %></li>
-</ul>
-<br>
-<form action="/user/<%= @user_id %>" method="post">
-  <% if @user_trail == nil%>
-    <input type="checkbox" name="favorite" value="favorite"> Favorite<br>
-    <input type="checkbox" name="completed" value="completed"> Completed<br>
-  <% else %>
-    <input type="checkbox" name="favorite" id="favorite" value="favorite" <%='checked' unless @user_trail.favorite.blank? %>>Favorite</input>
-    <input type="checkbox" name="completed" id="completed" value="completed" <%='checked' unless @user_trail.completed.blank? %>>Completed</input>
-  <% end %>
-  <input type="hidden" name="trail_id" value="<%= @trail.id %>" />
-  <input type="submit" value="Save">
-</form>
-
+<% unless @trail.photo_url.blank? %>
+  <img src="<%=@trail.photo_url%>" alt="trail_image" class="trail_image">
+<% end %>
 <br>
 <a href="/trails/<%=@trail.id%>/edit">Edit Trail </a>

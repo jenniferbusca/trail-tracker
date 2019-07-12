@@ -16,7 +16,6 @@ class TrailsController < ApplicationController
 
   # POST: /trails
   post "/trails" do
-    # binding.pry
     searched_trail = Trail.find_by name: params[:trail][:name], location: params[:trail][:location]
     if searched_trail == nil
       @trail = Trail.create(params[:trail])
