@@ -1,12 +1,14 @@
-<h2>Welcome to Trail Tracker!</h2>
-<br>
-<p>To track your hiking activity, please Log in or Sign Up below:</p>
+<head>
+  <link rel="stylesheet" href="/stylesheets/stylesheet.css" />
+</head>
 
-<nav>
-  <form action="/login">
-      <input type="submit" value="Log In"/><br>
-  </form>
+<div class="container">
+<img src="/images/hiking_image.jpg">
+  <h1>Find your next adventure</h1>
   <form action="/signup">
-      <input type="submit" value="Sign Up"/>
+    <input type="submit" value="Sign Up" class="button signup-button"/>
   </form>
-</nav>
+  <form action="/login">
+    <input type="submit" value="Log In" class="button login-button"/>
+  </form>
+</div>

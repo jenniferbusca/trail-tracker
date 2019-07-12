@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id #automatically logs user in after signup
       redirect "/user/#{session[:user_id]}"
     else
-    erb :'users/failure', locals: {message: "Your username or email are already registered."}
+    erb :'users/failure', locals: {message: "Make sure your username and email aren't already registered and that your password 5 characters or more."}
     end
   end
 
