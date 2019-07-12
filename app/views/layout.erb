@@ -15,7 +15,18 @@
   </head>
   <body>
     <div class="wrapper">
-    <header><img src="/images/trail_tracker_logo_1.png" class="img-responsive main-image"></header>
+    <header>
+      <img src="/images/trail_tracker_logo_1.png" class="img-responsive main-image">
+      <% if logged_in? %>
+        <ul class="nav">
+          <li><a class="active" href="/">Home</a></li>
+          <li><a href="/trails">Trails</a></li>
+          <li><a href="/trails/new">Create Trail</a></li>
+          <li style="float:right"><a href="/logout">Log Out</a></li>
+          <li style="float:right"><a href="/user/<%= current_user.id %>/edit">Edit Account</a></li>
+        </ul>
+      <% end %>
+    </header>
     <br>
         <%= yield %>
       <footer class="branding">

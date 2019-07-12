@@ -1,8 +1,12 @@
 @media screen {
   img {
-    max-width: 50%;
     height: auto;
     border-radius: 8px;
+  }
+
+  .container {
+    position: relative;
+    width: 100%;
   }
 
   .container h1 {
@@ -18,6 +22,21 @@
     max-width: 100%;
     height: auto;
     border-radius: 8px;
+  }
+
+  .photo {
+    max-width: 400px;
+  }
+
+  .photo img {
+    max-width: 100%;
+  }
+
+  .trail_container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 10px 20px 10px 20px;
   }
 
   .button {
