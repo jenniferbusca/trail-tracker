@@ -7,6 +7,7 @@
     <% current_user.favorite_trails.each do |favorite_trail| %>
       <li><a href="/trails/<%= favorite_trail[:id] %>"><%= favorite_trail.name %> in <%= favorite_trail.location %></a></li>
     <% end %>
+    <br>
   <% else %>
   <p>You have no favorite trails.</p>
   <% end %>
@@ -16,9 +17,11 @@
     <% current_user.completed_trails.each do |completed_trail| %>
       <li><a href="/trails/<%= completed_trail[:id] %>"><%= completed_trail.name %> in <%= completed_trail.location %></a></li>
     <% end %>
+    <br>
   <% else %>
   <p>You have not completed any trails.</p>
   <% end %>
+  <p><a href="/trails/new">Create a new trail</a></p>
 
   <p>Edit your <a href="/user/<%= @user.id %>/edit">account</a></p>
   <form action="/logout">

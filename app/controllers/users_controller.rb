@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id #automatically logs user in after signup
       redirect "/user/#{session[:user_id]}"
     else
-      redirect '/failure'
+    erb :'users/failure', locals: {message: "Your username or email are already registered."}
     end
   end
 
@@ -43,13 +43,13 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect "/user/#{session[:user_id]}"
     else
-      redirect "/failure"
+      erb :'users/failure', locals: {message: "Your username or password are incorrect."}
     end
   end
 
-  get "/failure" do
-    erb :"/users/failure"
-  end
+  # get "/failure" do
+  #   erb :"/users/failure"
+  # end
 
   get '/logout' do
     session.destroy
@@ -72,9 +72,7 @@ class UsersController < ApplicationController
   # delete
   delete '/user/:id' do
     @user = User.find(params[:id])
-    @user.delete
-    # @user_trails = UserTrails.where("user_id = ?", params[:id])
-    # @user_trails.delete unless @user_trails.blank?
+    @user.destroy
     redirect "/logout"
   end
 

@@ -16,8 +16,13 @@ class TrailsController < ApplicationController
 
   # POST: /trails
   post "/trails" do
-    @trail = Trail.create(params[:trail])
-    redirect "/trails/#{@trail.id}"
+    searched_trail = Trail.find_by name: params[:trail][:name], location: params[:trail][:location]
+    if searched_trail == nil
+      @trail = Trail.create(params[:trail])
+      redirect "/trails/#{@trail.id}"
+    else
+      erb :'users/failure', locals: {message: "This trail already exists."}
+    end
   end
 
   # GET /trails/:id
@@ -44,7 +49,7 @@ class TrailsController < ApplicationController
   # delete
   delete '/trails/:id' do
     @trail = Trail.find(params[:id])
-    @trail.delete
+    @trail.destroy
     redirect "/trails"
   end
 

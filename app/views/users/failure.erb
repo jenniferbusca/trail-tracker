@@ -1,2 +1,15 @@
 <h1>Whooooops!</h1>
-<p>Something went wrong. Please return to <a href="/logout">the home page</a> and try again.</p>
+
+<br>
+<% unless locals.empty? %>
+  <b><%= message %></b>
+<% end %>
+Please hit the button below to go back to the previous page.
+<br>
+<br>
+<button onclick="goBack()">Go Back</button>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
