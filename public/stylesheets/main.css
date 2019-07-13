@@ -26,7 +26,7 @@
     box-shadow: 0 0 10px rgba(0,0,0,.3);
     margin: 16px auto;
     max-width: 960px;
-    padding: 2.25%; /* 18px / 800px */
+    padding: 18px; /* 18px / 800px */
     width: 85%;
   }
 
@@ -85,8 +85,8 @@
   .nav{
     list-style-type: none;
     width: 100%;
-    margin: 0;
-    padding: 0;
+    margin: 0 -18px;
+    padding: 0 18px;
     overflow: hidden;
     background-color: #333;
   }
