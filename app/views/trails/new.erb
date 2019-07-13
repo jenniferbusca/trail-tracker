@@ -1,18 +1,21 @@
+<head>
+  <link rel="stylesheet" href="/stylesheets/stylesheet.css" />
+</head>
 <h2>Create a new trail:</h2>
-<br>
-<form action="/trails" method="post">
-  <label for="name">Name: </label>
-  <input type="text" name="trail[name]" value=""><br>
-  <label for="location">Location: </label>
-  <input type="text" name="trail[location]" value=""><br>
-  <label for="miles">Miles:</label>
-  <input type="text" name="trail[miles]" value=""><br>
-  <label for="elevation_gain">Elevation Gain: </label>
-  <input type="text" name="trail[elevation_gain]" value="" placeholder="enter number of feet"><br>
-  <label for="difficulty">Difficulty: </label>
-  <input type="text" name="trail[difficulty]" value="" placeholder="easy, medium, hard"><br>
-  <label for="photo_url">Photo URL: </label>
-  <input type="url" name="trail[photo_url]" id="trail[photo_url]"><br>
-  <br>
-  <input type="submit" value="Submit Trail">
-</form>
+<div class="new-trail">
+  <form action="/trails" method="post">
+    <label for="name">Name: </label>
+    <input type="text" name="trail[name]" value="">
+    <label for="location">Location: </label>
+    <input type="text" name="trail[location]" value="">
+    <label for="miles">Miles:</label>
+    <input type="text" name="trail[miles]" value="">
+    <label for="elevation_gain">Elevation Gain: </label>
+    <input type="text" name="trail[elevation_gain]" value="" placeholder="enter number of feet">
+    <label for="difficulty">Difficulty: </label>
+    <input type="text" name="trail[difficulty]" value="" placeholder="easy, medium, hard">
+    <label for="photo_url">Photo URL: </label>
+    <input type="url" name="trail[photo_url]" id="trail[photo_url]">
+    <input type="submit" value="Submit Trail">
+  </form>
+</div>
