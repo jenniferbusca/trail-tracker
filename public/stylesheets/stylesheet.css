@@ -4,10 +4,9 @@
     border-radius: 8px;
   }
 
-  .new-trail {
+  .new-trail, .signup, .edit-user, .login, .edit-trail {
     display: flex;
     flex-direction: column;
-    /* justify-content:space-between; */
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
@@ -15,24 +14,24 @@
     height: auto;
   }
 
-  .new-trail input[type=text], input[type=url] {
+  input[type=text], input[type=url], input[type=password], input[type=email] {
     width: 200px;
     padding: 8px;
     border: 1px solid #ccc;
-    /* border-radius: 4px; */
-    /* resize: vertical; */
+    border-radius: 4px;
     float: left;
     width: 60%;
     margin-top: 6px;
   }
 
-  .new-trail label {
+  label {
     padding: 9px;
+    margin-top: 1px;
     float: left;
     width: 25%;
   }
 
-  .new-trail input[type=submit] {
+  .form-button {
     background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
@@ -43,11 +42,13 @@
     margin: 12px 10%;
   }
 
-  .new-trail input[type=submit]:hover {
+  .form-button:hover {
     background-color: #45a049;
   }
 
   .container {
+    display: flex;
+    flex-direction: row;
     position: relative;
     width: 100%;
   }
@@ -94,6 +95,7 @@
     border-radius: 5px;
     text-align: center;
     display: inline-block;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   }
 
   .signup-button {
@@ -114,10 +116,29 @@
     color: white;
   }
 
-@media screen and (max-width: 600px) {
-  img {
-    max-width: 50%;
-    height: auto;
-    border-radius: 8px;
+  .thumbnail-list {
+    margin: 20px;
   }
-}
+
+  .thumbnail-list ul {
+    list-style-type: none;
+    width: 500px;
+  }
+
+  .thumbnail-list li img {
+    float: left;
+    margin: 0 15px 0 0;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    width: 75px;
+  }
+
+  .thumbnail-list li {
+    padding: 10px;
+    overflow: auto;
+  }
+
+  .thumbnail-list li:hover {
+    background: #eee;
+    cursor: pointer;
+  }

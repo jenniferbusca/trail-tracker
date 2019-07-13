@@ -1,39 +1,28 @@
+<head>
+  <link rel="stylesheet" href="/stylesheets/stylesheet.css" />
+</head>
 <h2> Edit Trail </h2>
-
-<form action="/trails/<%= @trail.id %>" method="post">
-  <input type="hidden" name="_method" value="patch">
-  <ul>
-    <li>
-      <label for="name">Name: </label>
-      <input id="name" type="text" name="trail[name]" value="<%= @trail.name %>"/>
-    </li>
-    <li>
-      <label for="location">Location: </label>
-      <input id="location" type="text" name="trail[location]" value="<%= @trail.location %>"/>
-    </li>
-    <li>
-      <label for="miles">Miles: </label>
-      <input id="miles" type="text" name="trail[miles]" value="<%= @trail.miles %>"/>
-    </li>
-    <li>
-      <label for="elevation_gain">Elevation Gain:</label>
-      <input id="elevation_gain" type="text" name="trail[elevation_gain]" value="<%= @trail.elevation_gain%>"/>
-    </li>
-    <li>
-      <label for="difficulty">Difficulty:</label>
-      <input id="difficulty" type="text" name="trail[difficulty]" value="<%= @trail.difficulty %>"/>
-    </li>
-    <li>
-      <label for="photo_url">Photo URL:</label>
-      <input id="photo_url" type="text" name="trail[photo_url]" value="<%= @trail.photo_url %>"/>
-    </li>
-  </ul>
-  <input type="submit" value="Submit Changes"/>
-</form>
-<br>
-<% if current_user.email == "jennifer.busca@gmail.com" %>
-  <form method="post" action="/trails/<%= @trail.id %>">
-    <input type="hidden" name="_method" value="delete" />
-    <input type="submit" value="Delete Trail"/>
+<div class="edit-trail">
+  <form action="/trails/<%= @trail.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+        <label for="name">Name: </label>
+        <input id="name" type="text" name="trail[name]" value="<%= @trail.name %>"/>
+        <label for="location">Location: </label>
+        <input id="location" type="text" name="trail[location]" value="<%= @trail.location %>"/>
+        <label for="miles">Miles: </label>
+        <input id="miles" type="text" name="trail[miles]" value="<%= @trail.miles %>"/>
+        <label for="elevation_gain">Elevation Gain:</label>
+        <input id="elevation_gain" type="text" name="trail[elevation_gain]" value="<%= @trail.elevation_gain%>"/>
+        <label for="difficulty">Difficulty:</label>
+        <input id="difficulty" type="text" name="trail[difficulty]" value="<%= @trail.difficulty %>"/>
+        <label for="photo_url">Photo URL:</label>
+        <input id="photo_url" type="text" name="trail[photo_url]" value="<%= @trail.photo_url %>"/>
+    <input type="submit" value="Submit Changes" class="form-button"/>
   </form>
-<% end %>
+  <% if current_user.email == "jennifer.busca@gmail.com" %>
+    <form method="post" action="/trails/<%= @trail.id %>">
+      <input type="hidden" name="_method" value="delete" />
+      <input type="submit" value="Delete Trail" class="form-button"/>
+    </form>
+  <% end %>
+</div>

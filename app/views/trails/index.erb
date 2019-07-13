@@ -1,6 +1,19 @@
+<head>
+  <link rel="stylesheet" href="/stylesheets/stylesheet.css" />
+</head>
 <h2>Trail List</h2>
+<div class="thumbnail-list">
 <ul>
 <% @trails.each do |trail| %>
-  <li><a href="/trails/<%= trail.id %>"><%= trail.name %> in <%= trail.location %></li>
+  <li>
+    <% unless trail.photo_url.blank? %>
+      <img src="<%=trail.photo_url%>" alt="trail">
+      <a href="/trails/<%= trail.id %>"><%= trail.name %></a> in <%= trail.location %>
+    <% else %>
+      <img src="https://www.w3schools.com/howto/img_forest.jpg" alt="trail">
+      <a href="/trails/<%= trail.id %>"><%= trail.name %></a> in <%= trail.location %>
+    <%end%>
+  </li>
 <% end %>
 </ul>
+</div>

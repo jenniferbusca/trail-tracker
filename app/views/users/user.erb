@@ -1,20 +1,44 @@
+<head>
+  <link rel="stylesheet" href="/stylesheets/stylesheet.css" />
+</head>
 <h2>Your Trails:</h2>
 <h3>Favorites</h3>
+<div class="thumbnail-list">
+<ul>
   <% unless current_user.favorite_trails.blank? %>
     <% current_user.favorite_trails.each do |favorite_trail| %>
-      <li><a href="/trails/<%= favorite_trail[:id] %>"><%= favorite_trail.name %> in <%= favorite_trail.location %></a></li>
+    <li>
+      <% unless favorite_trail.photo_url.blank? %>
+        <img src="<%=favorite_trail.photo_url%>" alt="trail">
+        <a href="/trails/<%= favorite_trail[:id] %>"><%= favorite_trail.name %></a> in <%= favorite_trail.location %>
+      <% else %>
+        <img src="https://www.w3schools.com/howto/img_forest.jpg" alt="trail">
+        <a href="/trails/<%= favorite_trail[:id] %>"><%= favorite_trail.name %></a> in <%= favorite_trail.location %>
+      <% end %>
+    </li>
     <% end %>
-    <br>
   <% else %>
   <p>You have no favorite trails.</p>
   <% end %>
-
+</ul>
+</div>
 <h3>Completed</h3>
+<div class="thumbnail-list">
+<ul>
   <% unless current_user.completed_trails.blank? %>
     <% current_user.completed_trails.each do |completed_trail| %>
-      <li><a href="/trails/<%= completed_trail[:id] %>"><%= completed_trail.name %> in <%= completed_trail.location %></a></li>
+      <li>
+      <% unless completed_trail.photo_url.blank? %>
+        <img src="<%=completed_trail.photo_url%>" alt="trail">
+        <a href="/trails/<%= completed_trail[:id] %>"><%= completed_trail.name %></a>in <%= completed_trail.location %>
+      <% else %>
+        <img src="https://www.w3schools.com/howto/img_forest.jpg" alt="trail">
+        <a href="/trails/<%= completed_trail[:id] %>"><%= completed_trail.name %></a> in <%= completed_trail.location %>
+      <% end %>
+      </li>
     <% end %>
-    <br>
   <% else %>
   <p>You have not completed any trails.</p>
   <% end %>
+</ul>
+</div>

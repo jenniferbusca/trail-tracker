@@ -1,11 +1,13 @@
+<head>
+  <link rel="stylesheet" href="/stylesheets/stylesheet.css" />
+</head>
 <h2>Login to your Trail Tracker account</h2>
-<br>
-<form method="post" action="/login">
-Username:<br>
-<input type="text" name="username" size= "35" placeholder="Username:"><br>
-<br>
-Password:<br>
-<input type="password" name="password" size= "35" placeholder="Password:"><br>
-<br>
-<input type="submit" value="submit">
-</form>
+<div class="login">
+  <form method="post" action="/login">
+  <label for="name">Username: </label>
+  <input type="text" name="username" placeholder="Username:">
+  <label for="password">Password: </label>
+  <input type="password" name="password" placeholder="Password:"><br>
+  <input type="submit" value="Submit" class="form-button">
+  </form>
+</div>
