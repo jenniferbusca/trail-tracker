@@ -10,10 +10,12 @@
     <li>
       <% unless favorite_trail.photo_url.blank? %>
         <img src="<%=favorite_trail.photo_url%>" alt="trail">
-        <a href="/trails/<%= favorite_trail[:id] %>"><%= favorite_trail.name %></a> in <%= favorite_trail.location %>
+        <a href="/trails/<%= favorite_trail[:id] %>"><%= favorite_trail.name %></a><br>
+        <%= favorite_trail.location %>
       <% else %>
         <img src="https://www.w3schools.com/howto/img_forest.jpg" alt="trail">
-        <a href="/trails/<%= favorite_trail[:id] %>"><%= favorite_trail.name %></a> in <%= favorite_trail.location %>
+        <a href="/trails/<%= favorite_trail[:id] %>"><%= favorite_trail.name %></a><br>
+        <%= favorite_trail.location %>
       <% end %>
     </li>
     <% end %>
@@ -30,10 +32,12 @@
       <li>
       <% unless completed_trail.photo_url.blank? %>
         <img src="<%=completed_trail.photo_url%>" alt="trail">
-        <a href="/trails/<%= completed_trail[:id] %>"><%= completed_trail.name %></a>in <%= completed_trail.location %>
+        <a href="/trails/<%= completed_trail[:id] %>"><%= completed_trail.name %></a><br>
+        <%= completed_trail.location %>
       <% else %>
         <img src="https://www.w3schools.com/howto/img_forest.jpg" alt="trail">
-        <a href="/trails/<%= completed_trail[:id] %>"><%= completed_trail.name %></a> in <%= completed_trail.location %>
+        <a href="/trails/<%= completed_trail[:id] %>"><%= completed_trail.name %></a><br>
+        <%= completed_trail.location %>
       <% end %>
       </li>
     <% end %>

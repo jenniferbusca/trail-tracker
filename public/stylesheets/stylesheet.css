@@ -53,12 +53,34 @@
     width: 100%;
   }
 
-  .container h1 {
+  div.welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
     position: absolute;
-    top: 10%;
-    left: 25%;
+    top: 20px;
+    margin: 5% 25%;
+    width: 50%;
+    height: 125px;
     text-align: center;
     color: black;
+    background: rgba(202, 205, 202, 0.5);
+    border-radius: 8px;
+  }
+
+  .signup-button {
+    position: absolute;
+    width: 150px;
+    top: 70%;
+    left: 30%;
+  }
+
+  .login-button {
+    position: absolute;
+    width: 150px;
+    top: 70%;
+    left: 70%;
   }
 
   .container img {
@@ -98,19 +120,6 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   }
 
-  .signup-button {
-    position: absolute;
-    width: 150px;
-    top: 30%;
-    left: 35%;
-  }
-
-  .login-button {
-    position: absolute;
-    width: 150px;
-    top: 30%;
-    right: 25%;
-  }
   .container .button:hover {
     background-color: darkgreen;
     color: white;

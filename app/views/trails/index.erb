@@ -8,10 +8,12 @@
   <li>
     <% unless trail.photo_url.blank? %>
       <img src="<%=trail.photo_url%>" alt="trail">
-      <a href="/trails/<%= trail.id %>"><%= trail.name %></a> in <%= trail.location %>
+      <a href="/trails/<%= trail.id %>"><%= trail.name %></a><br>
+      <%= trail.location %>
     <% else %>
       <img src="https://www.w3schools.com/howto/img_forest.jpg" alt="trail">
-      <a href="/trails/<%= trail.id %>"><%= trail.name %></a> in <%= trail.location %>
+      <a href="/trails/<%= trail.id %>"><%= trail.name %></a><br>
+      <%= trail.location %>
     <%end%>
   </li>
 <% end %>
