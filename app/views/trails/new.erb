@@ -4,18 +4,18 @@
 <h2>Create a new trail:</h2>
 <div class="new-trail">
   <form action="/trails" method="post">
-    <label for="name">Name: </label>
-    <input type="text" name="trail[name]" value="">
+    <label for="name">Name:</label>
+    <input type="text" name="trail[name]" value="" placeholder="Required">
     <label for="location">Location: </label>
-    <input type="text" name="trail[location]" value="">
+    <input type="text" name="trail[location]" value="" placeholder="Required">
     <label for="miles">Miles:</label>
-    <input type="text" name="trail[miles]" value="">
+    <input type="text" name="trail[miles]" value="" placeholder="Optional">
     <label for="elevation_gain">Elevation Gain: </label>
-    <input type="text" name="trail[elevation_gain]" value="" placeholder="enter number of feet">
+    <input type="text" name="trail[elevation_gain]" value="" placeholder="Optional, enter number of feet">
     <label for="difficulty">Difficulty: </label>
-    <input type="text" name="trail[difficulty]" value="" placeholder="easy, medium, hard">
+    <input type="text" name="trail[difficulty]" value="" placeholder="Optional, easy, medium, hard">
     <label for="photo_url">Photo URL: </label>
-    <input type="url" name="trail[photo_url]" id="trail[photo_url]">
+    <input type="url" name="trail[photo_url]" id="trail[photo_url]" placeholder="Optional">
     <input type="submit" value="Submit Trail" class="form-button">
   </form>
 </div>

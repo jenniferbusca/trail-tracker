@@ -16,12 +16,16 @@ class TrailsController < ApplicationController
 
   # POST: /trails
   post "/trails" do
-    searched_trail = Trail.find_by name: params[:trail][:name], location: params[:trail][:location]
-    if searched_trail == nil
-      @trail = Trail.create(params[:trail])
-      redirect "/trails/#{@trail.id}"
+    unless params[:trail][:name].blank? || params[:trail][:location].blank?
+      searched_trail = Trail.find_by name: params[:trail][:name], location: params[:trail][:location]
+      if searched_trail == nil
+        @trail = Trail.create(params[:trail])
+        redirect "/trails/#{@trail.id}"
+      else
+        erb :'users/failure', locals: {message: "This trail already exists."}
+      end
     else
-      erb :'users/failure', locals: {message: "This trail already exists."}
+      erb :'users/failure', locals: {message: "Trail name and location required."}
     end
   end
 
