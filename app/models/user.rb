@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_secure_password
   validates_presence_of :username, :email
   # validates_presence_of :password, on: :create
-  # validates_uniqueness_of :username, :email
+  # validates_uniqueness_of :username, :email, on: :create
 
   def favorite_trails
     self.trails.where("favorite = ?", "favorite")

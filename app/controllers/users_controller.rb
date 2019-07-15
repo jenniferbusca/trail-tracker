@@ -16,7 +16,6 @@ class UsersController < ApplicationController
 
   get '/user/:id' do
     @user = User.find(session[:user_id])
-    @trails = Trail.all
     erb :"/users/user"
   end
 
