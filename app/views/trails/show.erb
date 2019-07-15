@@ -27,7 +27,9 @@
   </div>
   <div class="photo">
     <br>
-    <% unless @trail.photo_url.blank? %>
+    <% if @trail.photo_url.blank? %>
+      <img src="https://www.w3schools.com/howto/img_forest.jpg" alt="trail">
+    <% else %>
       <img src="<%=@trail.photo_url%>" alt="trail_image" class="trail_image">
     <% end %>
     <br>
