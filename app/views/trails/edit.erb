@@ -13,10 +13,15 @@
         <input id="miles" type="text" name="trail[miles]" value="<%= @trail.miles %>"/>
         <label for="elevation_gain">Elevation Gain:</label>
         <input id="elevation_gain" type="text" name="trail[elevation_gain]" value="<%= @trail.elevation_gain%>"/>
-        <label for="difficulty">Difficulty:</label>
-        <input id="difficulty" type="text" name="trail[difficulty]" value="<%= @trail.difficulty %>"/>
         <label for="photo_url">Photo URL:</label>
         <input id="photo_url" type="text" name="trail[photo_url]" value="<%= @trail.photo_url %>"/>
+        <label for="difficulty">Difficulty: </label>
+        <select type="text" name="trail[difficulty]" value="<%= @trail.difficulty %>">
+          <option value="easy" <%='selected' if @trail.difficulty == "easy" %>>Easy</option>
+          <option value="medium" <%='selected' if @trail.difficulty == "medium" %>>Medium</option>
+          <option value="hard" <%='selected' if @trail.difficulty == "hard" %>>Hard</option>
+          <option value="very hard" <%='selected' if @trail.difficulty == "very hard" %>>Very Hard</option>
+        </select>
     <input type="submit" value="Submit Changes" class="form-button"/>
   </form>
   <% if current_user.email == "jennifer.busca@gmail.com" %>
